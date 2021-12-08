@@ -5,7 +5,10 @@ public class Main {
     static UserDao userDao = new UserDao();
 
     public static void main(String[] args) {
-        createUser();
+        //createUser();
+        System.out.println(userDao.getAllUsers());
+        //userDao.deleteUser();
+        updateUser();
         UserDao userDao = new UserDao();
         System.out.println(userDao.getAllUsers());
     }
@@ -26,6 +29,29 @@ public class Main {
         User user = new User(name, lastName, age);
         userDao.createUser(user);
         System.out.println("Utworzono usera: " + user);
+
+    }
+
+    public static void updateUser() {
+        String name, lastname;
+        int age, id;
+
+        System.out.println("Wpisz ID użytkownika, którego dane chcesz zmienić: ");
+        id = scanner.nextInt();
+
+        System.out.println("Wpisz imię jakie użytkownik ma posiadać: ");
+        name = scanner.next();
+
+        System.out.println("Wpisz nazwisko jakie użytkownik ma posiadać: ");
+        lastname = scanner.next();
+
+        System.out.println("Wpisz wiek jaki użytkownik ma posiadać: ");
+        age = scanner.nextInt();
+
+        User user = new User(id, name, lastname, age);
+        userDao.updateUser(user);
+
+
     }
 
 //    public static void calculate() {
